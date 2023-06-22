@@ -43,7 +43,7 @@
 9	<input id="item9" type="datetime" value="2023/06/21 10:23:00"> <span id="spnItem9"></span><br>
 10	<input id="item10" type="date" value="2023-06-21"> <span id="spnItem10"></span><br>
 11	<input id="item11" type="month" value="2023-06"> <span id="spnItem11"></span><br>
-12	<input id="item12" type="week" value=""> <span id="spnItem12"></span><br>
+12	<input id="item12" type="week" value="2023-W25"> <span id="spnItem12"></span><br>
 13	<input id="item13" type="time" value="12:00"> <span id="spnItem13"></span><br>
 14	<input id="item14" type="datetime-local" value="2023-06-21 12:00:00"> <span id="spnItem14"></span><br>
 15	<input id="item15" type="number" value="1234567890"> <span id="spnItem15"></span><br>
