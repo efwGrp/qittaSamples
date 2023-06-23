@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript" src="https://efwgrp.github.io/qittaSamples/common/js/d3/d3.js"></script>
+	<script type="text/javascript" src="https://efwgrp.github.io/qittaSamples/common/js/d3/d3.geom.js"></script>
+	<script type="text/javascript" src="https://efwgrp.github.io/qittaSamples/common/js/d3/d3.layout.js"></script>
+	<script type="text/javascript" src="https://efwgrp.github.io/qittaSamples/common/js/CodeFlower.js"></script>
+	<style type="text/css">
+		circle.node {
+			cursor: pointer;
+			stroke: #000;
+			stroke-width: .5px;
+		}
+		
+		circle.node.directory {
+			stroke: #9ecae1;
+			stroke-width: 2px;
+		}
+		
+		circle.node.collapsed {
+			stroke: #555;
+		}
+		
+		.nodetext {
+			fill: #252929;
+			font-weight: bold;
+			text-shadow: 0 0 0.2em white;
+		}
+		
+		line.link {
+			fill: none;
+			stroke: #9ecae1;
+			stroke-width: 1.5px;
+		}
+	</style>
+	<script type="text/javascript">
+		//以下の行はjsイベントで内容を代入されます。
+		var json={@@@@};
+		var currentCodeFlower;
+		function createCodeFlower (json) {
+			var size=window.innerWidth>window.innerHeight?window.innerHeight:window.innerWidth;
+			if (currentCodeFlower) currentCodeFlower.cleanup();
+			currentCodeFlower = new CodeFlower("body", 700, 700).update(json);
+			document.body.style.zoom=size/700;
+		};
+	</script>
+</head>
+<body style="text-align:center;over-flow:hidden;margin:0px;" onload="createCodeFlower(json)"></body>
+</html>
