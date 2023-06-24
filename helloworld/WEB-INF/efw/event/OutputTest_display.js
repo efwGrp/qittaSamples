@@ -5,7 +5,7 @@ OutputTest_display.paramsFormat={
 	"#txtValues":null,
 }
 OutputTest_display.fire=function(params){
-	java.lang.Thread.sleep(3000);
+//	java.lang.Thread.sleep(3000);
 	var aryOptions=JSON.parse(params["#txtOptions"]);
 	var aryTables=JSON.parse(params["#txtTables"]);
 	var objValues=JSON.parse(params["#txtValues"]);

@@ -28,6 +28,7 @@ InputTest_submit.paramsFormat={
 	"#item26":"format:yyyy/MM",
 };
 InputTest_submit.fire=function(params){
+//	java.lang.Thread.sleep(3000);
 	return new Result()
 	.runat("body")
 	.withdata({
