@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Context>
+<Context>
+	<Resource
+		name			=	"jdbc/efw"
+		auth			=	"Container"
+		type			=	"javax.sql.DataSource"
+		driverClassName	=	"org.postgresql.Driver"
+		url				=	"jdbc:postgresql://localhost:5432/helloworld"
+		username		=	"postgres"
+		password		=	"postgres"
+		maxTotal		=	"10"
+		maxIdle			=	"10"
+		maxWaitMillis	=	"10"
+	/>
+	<Resource
+		name			=	"jdbc/again"
+		auth			=	"Container"
+		type			=	"javax.sql.DataSource"
+		driverClassName	=	"org.postgresql.Driver"
+		url				=	"jdbc:postgresql://localhost:5432/helloworld"
+		username		=	"postgres"
+		password		=	"postgres"
+		maxTotal		=	"10"
+		maxIdle			=	"10"
+		maxWaitMillis	=	"10"
+	/>
+</Context>
