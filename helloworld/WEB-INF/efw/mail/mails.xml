@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mails>
+<mails>
+<!-- パスワード送信メール -->
+	<mail id="hello">
+		<to>:to</to><!-- 送信先 -->
+		<cc>:cc</cc><!-- CC先 -->
+		<bcc>:bcc</bcc><!-- BCC先 -->
+		<mdn>:mdn</mdn><!-- 開封確認送信先 -->
+		<from>:from</from><!-- 発信者 -->
+		<subject>helloメール送信</subject>
+		<body>
+:nm 様：
+テストです。
+
+		</body>
+	</mail>
+</mails>

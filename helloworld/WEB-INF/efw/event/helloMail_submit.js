@@ -1,0 +1,19 @@
+var helloMail_submit={};
+helloMail_submit.paramsFormat={
+	"#txtTo":null,
+	"#txtName":null,
+	"#txtCC":null,
+	"#txtBCC":null,
+	"#txtMDN":null,
+	"#txtFrom":null,
+};
+helloMail_submit.fire=function(params){
+	mail.send("mails","hello",{
+		to:params["#txtTo"],
+		nm:params["#txtName"],
+		cc:params["#txtCC"],
+		bcc:params["#txtBCC"],
+		mdn:params["#txtMDN"],
+		from:params["#txtFrom"],
+	});
+}

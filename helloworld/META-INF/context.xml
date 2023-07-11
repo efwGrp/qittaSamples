@@ -25,4 +25,20 @@
 		maxIdle			=	"10"
 		maxWaitMillis	=	"10"
 	/>
+	<Resource
+		name			=	"mail/efw" 
+		auth			=	"Container"
+		type			=	"javax.mail.Session"
+		username		=	"[your account]@gmail.com"
+		password		=	"[your password]"
+		mail.debug		=   "false"
+		mail.user		=	"[your account]@gmail.com"
+		mail.from		=	"[your account]@gmail.com"
+		mail.transport.protocol="smtp" 
+		mail.smtp.host	=	"smtp.gmail.com"
+		mail.smtp.auth	=	"true"
+		mail.smtp.port	=	"587"
+		mail.smtp.starttls.enable="true"
+		description		=	"E-Mail Resource"
+	/>
 </Context>
