@@ -53,6 +53,8 @@ helloExcel_submit.fire=function(params){
 			.setCell("newSheet1","M2",123,"templateSheet","M1")
 			.setCell("newSheet1","O2",234,"templateSheet","O1")
 			.setCell("newSheet1","Q2",null,"templateSheet","Q1")//計算式自動的に適用する
+		
+			.setCell("newSheet1","D2",new Date(),"templateSheet","D1")
 			.setActiveSheet("newSheet1")
 			.save("myExcel.xlsx")
 			.close();
@@ -60,7 +62,11 @@ helloExcel_submit.fire=function(params){
 		var ary=excel.getArray("newSheet1",2,2,{
 			data1:"M",
 			data2:"O",
-			data3:"Q",
+			data3:["Q","#,##0.00"],//数字をフォーマットして文字列を取得する方法をテストする
+			data4:["D","yyyy/MM/dd"],//日付をフォーマットして文字列を取得する方法をテストする
+			data5:function(row){//コールバックfunctionをテストする
+				return excel.getValue("newSheet1","D"+row);
+			}
 		});
 		
 		var obj=excel.getSingle("newSheet1",{
