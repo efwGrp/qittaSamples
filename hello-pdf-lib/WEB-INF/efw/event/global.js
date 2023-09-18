@@ -8,14 +8,12 @@ global.fire=function(){
 
 var global={};
 var fontBytes={};
-var myfont;
 global.fire=function(){
 	load(_eventfolder+"/pdf-lib.min.js");
 	load(_eventfolder+"/fontkit.umd.min.js");
 	efw.register("PDFLib");
 	efw.register("fontkit");
 	efw.register("fontBytes");
-	var pdfDoc=await(PDFLib.PDFDocument.create());
 	function byteToUint8Array(byteArray) {
 		var uint8Array = new Uint8Array(byteArray.length);
 		uint8Array.set(Java.from(byteArray));
