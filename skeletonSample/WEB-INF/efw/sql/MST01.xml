@@ -15,7 +15,6 @@
 	</sql>
 	<sql id="selユーザ一覧">
 		SELECT 
-			u."ユーザ名" as abc, 
 			u."ユーザID",
 			u."パスワード", 
 			u."ユーザ名", 
