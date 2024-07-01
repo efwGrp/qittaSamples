@@ -30,8 +30,8 @@
 	保護ですからエラーが発生する。
 </td><td>
 	<efw:elFinder id="elfinder2" width="600" height="300" home="C:\EFW_ALL/apache-tomcat-7.0.109" isAbs="true" readonly="true"/>
-	<button onclick="elfinder2.setHome('C:/EFW_ALL/apache-tomcat-7.0.109/bin')">下位パスを変更する</button>
 	<button onclick="elfinder2.setHome('C:/EFW_ALL')">上位パスを変更する</button>
+	<button onclick="elfinder2.setHome('C:/EFW_ALL/apache-tomcat-7.0.109/bin')">下位パスを変更する</button>
 	<button onclick="elfinder2.setHome('C:/tool')">別パスを変更する</button>
 	<button onclick="readonlyChange(this,elfinder2)">読取り専用解除</button>
 	OSフォルダは推測できるからきわめて危険。
@@ -48,8 +48,8 @@
 	保護ですからエラーが発生する。
 </td><td>
 	<efw:elFinder id="elfinder4" width="600" height="300" home="upload" readonly="true"/>
-	<button onclick="elfinder4.setHome('')">下位パスを変更する</button>
-	<button onclick="elfinder4.setHome('upload/sub')">上位パスを変更する</button>
+	<button onclick="elfinder4.setHome('')">上位パスを変更する</button>
+	<button onclick="elfinder4.setHome('upload/sub')">下位パスを変更する</button>
 	<button onclick="readonlyChange(this,elfinder4)">読取り専用解除</button>
 	上位フォルダ名がわかる前提ならOK。
 	<button onclick="elfinder4.setHome('..')">..の上位パスを変更する</button>
