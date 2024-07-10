@@ -2,176 +2,176 @@ var helloTextCSVThread_submit={};
 helloTextCSVThread_submit.paramsFormat={
 	mode:null,
 };
-helloTextCSVThread_submit.mylocker = new java.util.concurrent.locks.ReentrantLock();//ƒ}ƒ‹ƒ`ƒXƒŒƒbƒhƒoƒbƒtƒ@[‚ğ‘€ì‚·‚é‚½‚ß‚ÌƒƒbƒJ[
+helloTextCSVThread_submit.mylocker = new java.util.concurrent.locks.ReentrantLock();//ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’æ“ä½œã™ã‚‹ãŸã‚ã®ãƒ­ãƒƒã‚«ãƒ¼
 helloTextCSVThread_submit.fire=function(params){
 	file.remove("text&csv/seperated");
 	file.makeDir("text&csv/seperated");
 	var ret=new Result().eval("elfinder1.setHome('text&csv/seperated')");
 	
-	//—á‚PAŠeí§ŒÀ‚ğl—¶‚¹‚¸–³×‹C‚È—á
+	//ä¾‹ï¼‘ã€å„ç¨®åˆ¶é™ã‚’è€ƒæ…®ã›ãšç„¡é‚ªæ°—ãªä¾‹
 	if (params.mode=="1"){//////////////////////////////////////////////////////
 		var ary=new BinaryReader(
-		    "text&csv/myText.txt",//“Ç‚İæ‚éƒtƒ@ƒCƒ‹
-		    [10,10],//€–Ú‚²‚Æ‚ÌƒoƒCƒg”
-		    ["MS932","MS932"],//€–Ú‚²‚Æ‚Ì•¶šƒR[ƒh
-		    20//‚P‚ÂƒŒƒCƒAƒEƒg‚ÌƒoƒCƒg”
-		).readAllLines();//‘S•”ƒŒƒR[ƒh‚ğˆêŠ‡‚Å“Ç‚İæ‚é
+		    "text&csv/myText.txt",//èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+		    [10,10],//é …ç›®ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+		    ["MS932","MS932"],//é …ç›®ã”ã¨ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
+		    20//ï¼‘ã¤ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ãƒã‚¤ãƒˆæ•°
+		).readAllLines();//å…¨éƒ¨ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ä¸€æ‹¬ã§èª­ã¿å–ã‚‹
 		for(var i=0;i<ary.length;i++){
-		    //ID‚Å•Û‘¶æ‚ğ“Á’è‚·‚éB
+		    //IDã§ä¿å­˜å…ˆã‚’ç‰¹å®šã™ã‚‹ã€‚
 		    var writer= new CSVWriter("text&csv/seperated/"+ary[i][0]+".csv", ",", "\"", "MS932");
-		    writer.writeLine(ary[i]);//ƒŒƒR[ƒh‚ğ‘‚«‚Ş
+		    writer.writeLine(ary[i]);//ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã‚€
 		    writer.close();
 		}
-	//—á‚QA‚PŒ‚¸‚Âˆ—‚ÌTd”h‚Ì—á
+	//ä¾‹ï¼’ã€ï¼‘ä»¶ãšã¤å‡¦ç†ã®æ…é‡æ´¾ã®ä¾‹
 	}else if (params.mode=="2"){////////////////////////////////////////////////
 		new BinaryReader(
-		    "text&csv/myText.txt",//“Ç‚İæ‚éƒtƒ@ƒCƒ‹
-		    [10,10],//€–Ú‚²‚Æ‚ÌƒoƒCƒg”
-		    ["MS932","MS932"],//€–Ú‚²‚Æ‚Ì•¶šƒR[ƒh
-		    20//‚P‚ÂƒŒƒCƒAƒEƒg‚ÌƒoƒCƒg”
-		).loopAllLines(function(fields,index){//‘S•”ƒŒƒR[ƒh‚ğ‚PŒ‚¸‚Â“Ç‚İæ‚é
-		    //ID‚Å•Û‘¶æ‚ğ“Á’è‚·‚éB
+		    "text&csv/myText.txt",//èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+		    [10,10],//é …ç›®ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+		    ["MS932","MS932"],//é …ç›®ã”ã¨ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
+		    20//ï¼‘ã¤ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ãƒã‚¤ãƒˆæ•°
+		).loopAllLines(function(fields,index){//å…¨éƒ¨ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ï¼‘ä»¶ãšã¤èª­ã¿å–ã‚‹
+		    //IDã§ä¿å­˜å…ˆã‚’ç‰¹å®šã™ã‚‹ã€‚
 		    var writer= new CSVWriter("text&csv/seperated/"+fields[0]+".csv", ",", "\"", "MS932");
-		    writer.writeLine(fields);//ƒŒƒR[ƒh‚ğ‘‚«‚Ş
+		    writer.writeLine(fields);//ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã‚€
 		    writer.close();
 		});
-	//—á‚RAƒƒbƒg•Ê‚ÅIO‚ğ•ª‚¯‚é—á
+	//ä¾‹ï¼“ã€ãƒ­ãƒƒãƒˆåˆ¥ã§IOã‚’åˆ†ã‘ã‚‹ä¾‹
 	}else if (params.mode=="3"){////////////////////////////////////////////////
-		var buffer=[];//ƒƒbƒgˆ—‚Ìƒoƒbƒtƒ@[
+		var buffer=[];//ãƒ­ãƒƒãƒˆå‡¦ç†ã®ãƒãƒƒãƒ•ã‚¡ãƒ¼
 		new BinaryReader(
-		    "text&csv/myText.txt",//“Ç‚İæ‚éƒtƒ@ƒCƒ‹
-		    [10,10],//€–Ú‚²‚Æ‚ÌƒoƒCƒg”
-		    ["MS932","MS932"],//€–Ú‚²‚Æ‚Ì•¶šƒR[ƒh
-		    20//‚P‚ÂƒŒƒCƒAƒEƒg‚ÌƒoƒCƒg”
-		).loopAllLines(function(fields,index){//‘S•”ƒŒƒR[ƒh‚ğ‚PŒ‚¸‚Â“Ç‚İæ‚é
+		    "text&csv/myText.txt",//èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+		    [10,10],//é …ç›®ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+		    ["MS932","MS932"],//é …ç›®ã”ã¨ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
+		    20//ï¼‘ã¤ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ãƒã‚¤ãƒˆæ•°
+		).loopAllLines(function(fields,index){//å…¨éƒ¨ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ï¼‘ä»¶ãšã¤èª­ã¿å–ã‚‹
 		    buffer.push(fields);
-		    if (index % 10 == 0){//ƒƒbƒg”‚É’B‚·‚©‚Ç‚¤‚©”»’f
-		        saveBuffer();//ƒƒbƒg‚ğ•Û‘¶‚·‚é
+		    if (index % 10 == 0){//ãƒ­ãƒƒãƒˆæ•°ã«é”ã™ã‹ã©ã†ã‹åˆ¤æ–­
+		        saveBuffer();//ãƒ­ãƒƒãƒˆã‚’ä¿å­˜ã™ã‚‹
 		    }
 		});
-		saveBuffer();//ƒƒbƒg”–¢–‚Ìcƒf[ƒ^‚ğ•Û‘¶‚·‚é
-		//------ˆÈ‰º‚Íƒoƒbƒtƒ@[•Û‘¶—p‚Ì“à•”ŠÖ”
+		saveBuffer();//ãƒ­ãƒƒãƒˆæ•°æœªæº€ã®æ®‹ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹
+		//------ä»¥ä¸‹ã¯ãƒãƒƒãƒ•ã‚¡ãƒ¼ä¿å­˜ç”¨ã®å†…éƒ¨é–¢æ•°
 		function saveBuffer(){
 		    for (var i=0;i<buffer.length;i++){
-		        //ID‚Å•Û‘¶æ‚ğ“Á’è‚·‚éB
+		        //IDã§ä¿å­˜å…ˆã‚’ç‰¹å®šã™ã‚‹ã€‚
 		        var writer= new CSVWriter("text&csv/seperated/"+buffer[i][0]+".csv", ",", "\"", "MS932");
-		        writer.writeLine(buffer[i]);//ƒŒƒR[ƒh‚ğ‘‚«‚Ş
+		        writer.writeLine(buffer[i]);//ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã‚€
 		        writer.close();
 		    }
-		    buffer=[];//ƒoƒbƒtƒ@[‚ğ‰Šú‰»‚·‚é
+		    buffer=[];//ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’åˆæœŸåŒ–ã™ã‚‹
 		}
-	//—á‚SAƒ‰ƒCƒ^[‚Ìg‚¢‚Ü‚í‚µ—á
+	//ä¾‹ï¼”ã€ãƒ©ã‚¤ã‚¿ãƒ¼ã®ä½¿ã„ã¾ã‚ã—ä¾‹
 	}else if (params.mode=="4"){////////////////////////////////////////////////
-		var buffer=[];//ƒƒbƒgˆ—‚Ìƒoƒbƒtƒ@[
-		var writers={};//ƒ‰ƒCƒ^[‚ğŠi”[‚·‚éƒ}ƒbƒv
+		var buffer=[];//ãƒ­ãƒƒãƒˆå‡¦ç†ã®ãƒãƒƒãƒ•ã‚¡ãƒ¼
+		var writers={};//ãƒ©ã‚¤ã‚¿ãƒ¼ã‚’æ ¼ç´ã™ã‚‹ãƒãƒƒãƒ—
 		new BinaryReader(
-		    "text&csv/myText.txt",//“Ç‚İæ‚éƒtƒ@ƒCƒ‹
-		    [10,10],//€–Ú‚²‚Æ‚ÌƒoƒCƒg”
-		    ["MS932","MS932"],//€–Ú‚²‚Æ‚Ì•¶šƒR[ƒh
-		    20//‚P‚ÂƒŒƒCƒAƒEƒg‚ÌƒoƒCƒg”
-		).loopAllLines(function(fields,index){//‘S•”ƒŒƒR[ƒh‚ğ‚PŒ‚¸‚Â“Ç‚İæ‚é
+		    "text&csv/myText.txt",//èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+		    [10,10],//é …ç›®ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+		    ["MS932","MS932"],//é …ç›®ã”ã¨ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
+		    20//ï¼‘ã¤ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ãƒã‚¤ãƒˆæ•°
+		).loopAllLines(function(fields,index){//å…¨éƒ¨ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ï¼‘ä»¶ãšã¤èª­ã¿å–ã‚‹
 		    buffer.push(fields);
-		    if (index % 10 == 0){//ƒƒbƒg”‚É’B‚·‚©‚Ç‚¤‚©”»’f
-		        saveBuffer();//ƒƒbƒg‚ğ•Û‘¶‚·‚é
+		    if (index % 10 == 0){//ãƒ­ãƒƒãƒˆæ•°ã«é”ã™ã‹ã©ã†ã‹åˆ¤æ–­
+		        saveBuffer();//ãƒ­ãƒƒãƒˆã‚’ä¿å­˜ã™ã‚‹
 		    }
 		});
-		saveBuffer();//ƒƒbƒg”–¢–‚Ìcƒf[ƒ^‚ğ•Û‘¶‚·‚é
-		saveWriters();//ƒ‰ƒCƒ^[‚ğˆêŠ‡‚Å•Â‚¶‚é
-		//------ˆÈ‰º‚Íƒoƒbƒtƒ@[•Û‘¶—p‚Ì“à•”ŠÖ”
+		saveBuffer();//ãƒ­ãƒƒãƒˆæ•°æœªæº€ã®æ®‹ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹
+		saveWriters();//ãƒ©ã‚¤ã‚¿ãƒ¼ã‚’ä¸€æ‹¬ã§é–‰ã˜ã‚‹
+		//------ä»¥ä¸‹ã¯ãƒãƒƒãƒ•ã‚¡ãƒ¼ä¿å­˜ç”¨ã®å†…éƒ¨é–¢æ•°
 		function saveBuffer(){
 		    for (var i=0;i<buffer.length;i++){
-		        //ID‚Å•Û‘¶æ‚ğ“Á’è‚·‚éB
+		        //IDã§ä¿å­˜å…ˆã‚’ç‰¹å®šã™ã‚‹ã€‚
 		        var writer=writers[buffer[i][0]];
 		        if (writer==null){
 		            writer=new CSVWriter("text&csv/seperated/"+buffer[i][0]+".csv", ",", "\"", "MS932");
 		            writers[buffer[i][0]]=writer;
 		        }
-		        writer.writeLine(buffer[i]);//ƒŒƒR[ƒh‚ğ‘‚«‚Ş
+		        writer.writeLine(buffer[i]);//ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã‚€
 		    }
-		    buffer=[];//ƒoƒbƒtƒ@[‚ğ‰Šú‰»‚·‚é
+		    buffer=[];//ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’åˆæœŸåŒ–ã™ã‚‹
 		}
-		//--------ƒ‰ƒCƒ^[‚ğˆêŠ‡‚Å•Â‚¶‚éŠÖ”
+		//--------ãƒ©ã‚¤ã‚¿ãƒ¼ã‚’ä¸€æ‹¬ã§é–‰ã˜ã‚‹é–¢æ•°
 		function saveWriters(){
 		    for(var key in writers){
 		        if (key=="debug")continue;
 		        writers[key].close();
 		    }
 		}
-	//—á‚TAƒoƒbƒtƒ@[‚Ì”z—ñ‚ğID•Ê‚É•ª‚¯‚é—á
+	//ä¾‹ï¼•ã€ãƒãƒƒãƒ•ã‚¡ãƒ¼ã®é…åˆ—ã‚’IDåˆ¥ã«åˆ†ã‘ã‚‹ä¾‹
 	}else if (params.mode=="5"){////////////////////////////////////////////////
-		var buffer={};//ƒƒbƒgˆ—‚Ìƒoƒbƒtƒ@[ƒ}ƒbƒvAID•Ê‚Ì”z—ñ‚ğŠi”[‚·‚é
+		var buffer={};//ãƒ­ãƒƒãƒˆå‡¦ç†ã®ãƒãƒƒãƒ•ã‚¡ãƒ¼ãƒãƒƒãƒ—ã€IDåˆ¥ã®é…åˆ—ã‚’æ ¼ç´ã™ã‚‹
 		new BinaryReader(
-		    "text&csv/myText.txt",//“Ç‚İæ‚éƒtƒ@ƒCƒ‹
-		    [10,10],//€–Ú‚²‚Æ‚ÌƒoƒCƒg”
-		    ["MS932","MS932"],//€–Ú‚²‚Æ‚Ì•¶šƒR[ƒh
-		    20//‚P‚ÂƒŒƒCƒAƒEƒg‚ÌƒoƒCƒg”
-		).loopAllLines(function(fields,index){//‘S•”ƒŒƒR[ƒh‚ğ‚PŒ‚¸‚Â“Ç‚İæ‚é
-		    //‚à‚µID•Ê‚Ì”z—ñ‚ª‚Ü‚¾‘¶İ‚µ‚È‚¢ê‡A‚»‚Ì”z—ñ‚ğ‰Šú‰»‚·‚é
+		    "text&csv/myText.txt",//èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+		    [10,10],//é …ç›®ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+		    ["MS932","MS932"],//é …ç›®ã”ã¨ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
+		    20//ï¼‘ã¤ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ãƒã‚¤ãƒˆæ•°
+		).loopAllLines(function(fields,index){//å…¨éƒ¨ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ï¼‘ä»¶ãšã¤èª­ã¿å–ã‚‹
+		    //ã‚‚ã—IDåˆ¥ã®é…åˆ—ãŒã¾ã å­˜åœ¨ã—ãªã„å ´åˆã€ãã®é…åˆ—ã‚’åˆæœŸåŒ–ã™ã‚‹
 		    if (buffer[fields[0]]==null)buffer[fields[0]]=[];
 		    buffer[fields[0]].push(fields);
-		    if (index % 10 == 0){//ƒƒbƒg”‚É’B‚·‚©‚Ç‚¤‚©”»’f
-		        saveBuffer();//ƒƒbƒg‚ğ•Û‘¶‚·‚é
+		    if (index % 10 == 0){//ãƒ­ãƒƒãƒˆæ•°ã«é”ã™ã‹ã©ã†ã‹åˆ¤æ–­
+		        saveBuffer();//ãƒ­ãƒƒãƒˆã‚’ä¿å­˜ã™ã‚‹
 		    }
 		});
-		saveBuffer();//ƒƒbƒg”–¢–‚Ìcƒf[ƒ^‚ğ•Û‘¶‚·‚é
-		//------ˆÈ‰º‚Íƒoƒbƒtƒ@[•Û‘¶—p‚Ì“à•”ŠÖ”
+		saveBuffer();//ãƒ­ãƒƒãƒˆæ•°æœªæº€ã®æ®‹ãƒ‡ãƒ¼ã‚¿ã‚’ä¿å­˜ã™ã‚‹
+		//------ä»¥ä¸‹ã¯ãƒãƒƒãƒ•ã‚¡ãƒ¼ä¿å­˜ç”¨ã®å†…éƒ¨é–¢æ•°
 		function saveBuffer(){
 		    for (var key in buffer){
 		        if (key=="debug")continue;
 		        var ary=buffer[key];
 		        var writer=new CSVWriter("text&csv/seperated/"+key+".csv", ",", "\"", "MS932");
 		        for(var i=0;i<ary.length;i++){
-		             writer.writeLine(ary[i]);//ƒŒƒR[ƒh‚ğ‘‚«‚Ş
+		             writer.writeLine(ary[i]);//ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã‚€
 		        }
 		        writer.close();
 		    }
-		    buffer={};//ƒoƒbƒtƒ@[‚ğ‰Šú‰»‚·‚é
+		    buffer={};//ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’åˆæœŸåŒ–ã™ã‚‹
 		}
 	
-	//—á‚UAƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚Ì—á
+	//ä¾‹ï¼–ã€ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã®ä¾‹
 	}else if (params.mode=="6"){////////////////////////////////////////////////
-		var buffer={};//ƒƒbƒgˆ—‚Ìƒoƒbƒtƒ@[ƒ}ƒbƒvAID•Ê‚Ì”z—ñ‚ğŠi”[‚·‚é
-		var hasDataFlag=false;//ƒf[ƒ^—L–³ƒtƒ‰ƒO
+		var buffer={};//ãƒ­ãƒƒãƒˆå‡¦ç†ã®ãƒãƒƒãƒ•ã‚¡ãƒ¼ãƒãƒƒãƒ—ã€IDåˆ¥ã®é…åˆ—ã‚’æ ¼ç´ã™ã‚‹
+		var hasDataFlag=false;//ãƒ‡ãƒ¼ã‚¿æœ‰ç„¡ãƒ•ãƒ©ã‚°
 		var lot=0;
 		do{
-			hasDataFlag=false;//‰Šú’lfalse
+			hasDataFlag=false;//åˆæœŸå€¤false
 			var threads = new Threads(2);
 			threads.add({from:0+lot*10 ,run:makeCsvBuffer});
 			threads.add({from:5+lot*10 ,run:makeCsvBuffer});
-			threads.run();//ƒ}ƒ‹ƒ`ƒXƒŒƒbƒh‚ğÀs‚·‚é
-			saveBuffer();//ƒoƒbƒtƒ@[‚ğ•Û‘¶‚·‚éBƒf[ƒ^‚ ‚éê‡AhasDataFlag‚ğtrue‚É‚·‚é
+			threads.run();//ãƒãƒ«ãƒã‚¹ãƒ¬ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹
+			saveBuffer();//ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’ä¿å­˜ã™ã‚‹ã€‚ãƒ‡ãƒ¼ã‚¿ã‚ã‚‹å ´åˆã€hasDataFlagã‚’trueã«ã™ã‚‹
 			lot++;
 		}while(hasDataFlag);
-		//------ˆÈ‰º‚ÍCSVƒoƒbƒtƒ@[‚ğì¬‚·‚éŠÖ”
+		//------ä»¥ä¸‹ã¯CSVãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’ä½œæˆã™ã‚‹é–¢æ•°
 		function makeCsvBuffer(){
 			new BinaryReader(
-			    "text&csv/myText.txt",//“Ç‚İæ‚éƒtƒ@ƒCƒ‹
-			    [10,10],//€–Ú‚²‚Æ‚ÌƒoƒCƒg”
-			    ["MS932","MS932"],//€–Ú‚²‚Æ‚Ì•¶šƒR[ƒh
-			    20,//‚P‚ÂƒŒƒCƒAƒEƒg‚ÌƒoƒCƒg”
-				this.from,//“Ç‚İ‚İŠJnƒŒƒR[ƒh”Ô†
-				5//“Ç‚İ‚İŒ”AƒƒbƒgŒ”/ƒXƒŒƒbƒh”
-			).loopAllLines(function(fields,index){//‘S•”ƒŒƒR[ƒh‚ğ‚PŒ‚¸‚Â“Ç‚İæ‚é
-			    //‚à‚µID•Ê‚Ì”z—ñ‚ª‚Ü‚¾‘¶İ‚µ‚È‚¢ê‡A‚»‚Ì”z—ñ‚ğ‰Šú‰»‚·‚é
-				helloTextCSVThread_submit.mylocker.lock();//ƒƒbƒN‚·‚é
+			    "text&csv/myText.txt",//èª­ã¿å–ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«
+			    [10,10],//é …ç›®ã”ã¨ã®ãƒã‚¤ãƒˆæ•°
+			    ["MS932","MS932"],//é …ç›®ã”ã¨ã®æ–‡å­—ã‚³ãƒ¼ãƒ‰
+			    20,//ï¼‘ã¤ãƒ¬ã‚¤ã‚¢ã‚¦ãƒˆã®ãƒã‚¤ãƒˆæ•°
+				this.from,//èª­ã¿è¾¼ã¿é–‹å§‹ãƒ¬ã‚³ãƒ¼ãƒ‰ç•ªå·
+				5//èª­ã¿è¾¼ã¿ä»¶æ•°ã€ãƒ­ãƒƒãƒˆä»¶æ•°/ã‚¹ãƒ¬ãƒƒãƒ‰æ•°
+			).loopAllLines(function(fields,index){//å…¨éƒ¨ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’ï¼‘ä»¶ãšã¤èª­ã¿å–ã‚‹
+			    //ã‚‚ã—IDåˆ¥ã®é…åˆ—ãŒã¾ã å­˜åœ¨ã—ãªã„å ´åˆã€ãã®é…åˆ—ã‚’åˆæœŸåŒ–ã™ã‚‹
+				helloTextCSVThread_submit.mylocker.lock();//ãƒ­ãƒƒã‚¯ã™ã‚‹
 			    	if (buffer[fields[0]]==null)buffer[fields[0]]=[];
 			    	buffer[fields[0]].push(fields);
-				helloTextCSVThread_submit.mylocker.unlock();//ƒƒbƒN‰ğœ‚·‚é
+				helloTextCSVThread_submit.mylocker.unlock();//ãƒ­ãƒƒã‚¯è§£é™¤ã™ã‚‹
 			});
 		}
-		//------ˆÈ‰º‚Íƒoƒbƒtƒ@[•Û‘¶—p‚Ì“à•”ŠÖ”
+		//------ä»¥ä¸‹ã¯ãƒãƒƒãƒ•ã‚¡ãƒ¼ä¿å­˜ç”¨ã®å†…éƒ¨é–¢æ•°
 		function saveBuffer(){
 		    for (var key in buffer){
 		        if (key=="debug")continue;
 		        var ary=buffer[key];
 		        var writer=new CSVWriter("text&csv/seperated/"+key+".csv", ",", "\"", "MS932");
 		        for(var i=0;i<ary.length;i++){
-		             writer.writeLine(ary[i]);//ƒŒƒR[ƒh‚ğ‘‚«‚Ş
+		             writer.writeLine(ary[i]);//ãƒ¬ã‚³ãƒ¼ãƒ‰ã‚’æ›¸ãè¾¼ã‚€
 		        }
 		        writer.close();
 		    	hasDataFlag=true;
 		    }
-		    buffer={};//ƒoƒbƒtƒ@[‚ğ‰Šú‰»‚·‚é
+		    buffer={};//ãƒãƒƒãƒ•ã‚¡ãƒ¼ã‚’åˆæœŸåŒ–ã™ã‚‹
 		}
 	}
 	return ret.alert("The file has been seperated.");
