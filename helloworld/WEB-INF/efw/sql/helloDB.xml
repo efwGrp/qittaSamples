@@ -12,7 +12,7 @@
 </sql>
 <sql id="dropTbl">
 	--動的パラメータテスト
-	DROP TABLE @tbl;
+	DROP TABLE @tbl
 </sql>
 <sql id="allFields">
 	id,
@@ -24,7 +24,7 @@
 	SELECT
 		--includeのテスト
 		<include groupId="helloDB" sqlId="allFields"/>
-	FROM tbl_hello;
+	FROM tbl_hello
 </sql>
 <sql id="insertRow">
 	INSERT INTO tbl_hello(
@@ -35,17 +35,17 @@
 		:name,
 		:birthday,
 		:years
-	);
+	)
 </sql>
 <!-- パラメータと動的パラメータの頭文字のカスタマイズ定義 -->
 <sql id="updateName" paramPrefix="#" dynamicPrefix="!">
 	UPDATE !tbl
 	SET
 		name=#name
-	WHERE id=#id;
+	WHERE id=#id
 </sql>
 <sql id="deleteRow">
 	DELETE FROM tbl_hello
-	WHERE id=:id;
+	WHERE id=:id
 </sql>
 </sqls>
