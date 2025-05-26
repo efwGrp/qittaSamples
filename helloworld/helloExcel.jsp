@@ -11,5 +11,6 @@
 <button onclick="Efw('helloExcel_submit',{mode:'rowcol'})">行列操作</button>
 <button onclick="Efw('helloExcel_submit',{mode:'data'})">データ操作</button>
 <button onclick="Efw('helloExcel_submit',{mode:'shape'})">図形操作</button>
+<button onclick="Efw('helloExcel_submit',{mode:'formula'})">計算式</button>
 </BODY>
 </HTML>

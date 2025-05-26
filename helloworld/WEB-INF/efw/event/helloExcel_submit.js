@@ -105,5 +105,20 @@ helloExcel_submit.fire=function(params){
 			.attach("myExcel.xlsx").deleteAfterDownload()
 			.alert("昭和="+isSyowa +" 大正="+isTaisyo+" 令和="+isReiwa);
 		
+	}else if (params.mode=="formula"){
+		var excel=new Excel("excel/IamExcelTemplate.xlsx")
+			.setActiveSheet("formulaTest")
+			.setCell("formulaTest","E2",null,"formulaTest","E1")
+			.setCell("formulaTest","E3",null,"formulaTest","E1")
+			.setCell("formulaTest","E4",null,"formulaTest","E1")
+			.setCell("formulaTest","E5",null,"formulaTest","E1")
+			.setCell("formulaTest","B7",null,"formulaTest","A7")
+			.setCell("formulaTest","C7",null,"formulaTest","A7")
+			.save("myExcel.xlsx")
+			.close();
+		;
+		return new Result()
+			.attach("myExcel.xlsx").deleteAfterDownload();
+
 	}
 }
